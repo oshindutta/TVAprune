@@ -11,7 +11,7 @@
 - [x] **Structured Pruning**: Suitable to deploy compressed dense models on devices
 - [x] **Efficient Compression**: Better performance without finetuning model parameters than other structured pruning methods (LLM-pruner, Bonsai)
 - [x] **Faster Inference**: Pruned models infer faster than other methods
-- [x] **Low Resource Compression**: Requires only 1 GPU (tested on NVIDIA A6000-48GB and NVIDIA A100(40GB))
+- [x] **Low Resource Compression**: Requires only 1 GPU (tested on NVIDIA A100(40GB))
 
 #### Supported LLMs:
 - [x] [Llama-2 Hugging Face](https://huggingface.co/meta-llama)
