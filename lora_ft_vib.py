@@ -17,7 +17,7 @@ import gc
 import time
 
 # Uncomment this out if running the Eleuther evaluation harness
-from lm_evaluation_harness.lm_eval import evaluator
+from lm_evaluation_harness_new.lm_eval import evaluator
 from torch import nn
 import datasets
 from datasets import load_from_disk
@@ -632,15 +632,15 @@ def main():
 			# adap_config= PeftConfig.from_pretrained(additional_args.save_loc)
 			# model = PeftModel.from_pretrained(model, config= adap_config, model_id=additional_args.save_loc, is_trainable=False  )
 			results = evaluator.simple_evaluate(
-					model="hf-causal-experimental",
+					model="hf",#-causal-experimental",
 					model_args=  f"pretrained={model_args.model_name_or_path}",
 					tasks=["hellaswag","winogrande","openbookqa","arc_easy","arc_challenge", "piqa", "boolq","rte"],
 					num_fewshot=0,
-					no_cache=True,
+					#no_cache=True,
 					pretrained_model=model,
-					decontamination_ngrams_path=None,
+					#decontamination_ngrams_path=None,
 					check_integrity=False,
-					description_dict={},
+					#description_dict={},
 				)
 			print("\n Zero shot results W/o finetuning", results)
 			if additional_args.finetune is not True:
