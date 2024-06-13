@@ -371,6 +371,11 @@ class HFLM(TemplateLM):
         else:
             return self._model
 
+    def _set_model(self, model):
+        # return the associated transformers.AutoConfig for the given pretrained model.
+        print("We have loaded the new model !")
+        self.model = model
+        
     @property
     def eot_token_id(self):
         # we use EOT because end of *text* is more accurate for what we're doing than end of *sentence*
