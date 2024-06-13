@@ -1,6 +1,9 @@
 ## Introduction 
 **TVAprune: Token Dependency-aware Variational Adapted pruning**
-
+- [x] Includes pruning of Grouped-Query Attention (GQA) based models
+- [x] Post prune instant weight update to recover performance
+- [x] Post-prune dimension adjustment to make weight matrix dimensions conform to dimensions used by GPU for better paralellism and hence faster inference
+ 
 #### Package versions tested on:
 - torch 2.2.1
 - transformers 4.40.2
@@ -9,7 +12,7 @@
 
 #### Why TVAprune for pruning LLMs:
 - [x] **Structured Pruning**: Suitable to deploy compressed dense models on devices
-- [x] **Efficient Compression**: Better performance without finetuning model parameters than other structured pruning methods (LLM-pruner, Bonsai)
+- [x] **Efficient Compression**: Better performance without finetuning model parameters than other structured pruning methods (LLM-pruner, Bonsai, FLAP)
 - [x] **Faster Inference**: Pruned models infer faster than other methods
 - [x] **Low Resource Compression**: Requires only 1 GPU (tested on NVIDIA A100(40GB))
 
