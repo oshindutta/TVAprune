@@ -29,6 +29,12 @@
 conda install pytorch==2.2.1 torchvision==0.17.1 torchaudio==2.2.1 pytorch-cuda=11.8 -c pytorch -c nvidia
 pip install -r requirement.txt
 ```
+### To evaluate on [Eleuther lm-evaluation-harness](https://github.com/EleutherAI/lm-evaluation-harness)
+```
+cd lm-evaluation-harness
+pip install -e .
+```
+
 ## To evaluate our Mistral and LLaMA-3 pruned models:
 Our pruning masks to prune Mistral-7B and LLaMA-3-7B are in mistral_saves_tva and llama3_saves_tva respectively. 
 The speedup may differ slightly depending on the machine.
@@ -47,15 +53,6 @@ Pruning with TVAprune to replicate our model in Table 1
 bash script/llama_prune.sh
 ```
 
-## Step-by-step Instructions  
-### Pruning
-
-Arguments:
-- ``vib_learning_rate``: is the set learning rate of VIB parameters
-- ``target_sparsity``: is the amount of sparsity or weights to be removed. 0.5 indicates removal of 50% of the model parameters.
-- ``lagrangian_warmup_epochs``: indicates how slowly compression should progress. 0.1 indicates warmup steps for lagrangian sparsity loss is set to 10% of total steps
-- ``save_loc``: directory to save the VIB masks
-
 ### Finetuning with [LoRA](https://github.com/microsoft/LoRA)
 
 Speed-up over un-pruned model is seen at the start of finetuning. Our obatined VIB mask stored in /best/ is used below for finetuning. 
@@ -66,8 +63,3 @@ Arguments:
 - ``mask_loc``: uploading a saved mask
 - ``dataset_name``: we finetune on wikitext2 , but previous techniques have finetuned on c4 have higher train samples. It may be changed to c4 to get better perplexity.
 
-### To evaluate on [Eleuther lm-evaluation-harness](https://github.com/EleutherAI/lm-evaluation-harness)
-```
-cd lm-evaluation-harness
-pip install -e .
-```
