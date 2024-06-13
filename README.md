@@ -29,7 +29,14 @@
 conda install pytorch==2.2.1 torchvision==0.17.1 torchaudio==2.2.1 pytorch-cuda=11.8 -c pytorch -c nvidia
 pip install -r requirement.txt
 ```
-
+## To evaluate our Mistral and LLaMA-3 pruned models:
+```
+python lora_ft_vib.py --model_name_or_path [PATH TO UNPRUNED MODEL] \
+	--do_eval \
+	--overwrite_output_dir \
+	--mask_loc [PATH TO PRUNING MASK] \
+	--do_zero_eval True
+```
 ## Example of Pruning
 
 Pruning with TVAprune to replicate our model in Table 1
