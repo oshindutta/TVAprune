@@ -30,7 +30,8 @@ conda install pytorch==2.2.1 torchvision==0.17.1 torchaudio==2.2.1 pytorch-cuda=
 pip install -r requirement.txt
 ```
 ## To evaluate our Mistral and LLaMA-3 pruned models:
-Our pruning masks to prune Mistral-7B and LLaMA-3-7B are in mistral_saves_tva and llama3_saves_tva respectively
+Our pruning masks to prune Mistral-7B and LLaMA-3-7B are in mistral_saves_tva and llama3_saves_tva respectively. 
+The speedup may differ slightly depending on the machine.
 ```
 python lora_ft_vib.py --model_name_or_path [PATH TO UNPRUNED MODEL] \
 	--do_eval \
