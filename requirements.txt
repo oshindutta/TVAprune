@@ -1,0 +1,5 @@
+conda install pytorch==2.2.1 torchvision==0.17.1 torchaudio==2.2.1 pytorch-cuda=11.8 -c pytorch -c nvidia
+pip install peft==0.6.2 transformers==4.40 datasets==2.19.1 accelerate==0.30.1
+pip install scipy 
+pip install numpy
+pip sentencepiece
