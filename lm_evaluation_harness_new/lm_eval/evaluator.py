@@ -452,12 +452,24 @@ def evaluate(
             req.resps.append(x)
             # Capture the details
             if write_out:
+                # Determine the response with the highest log-likelihood
+                #if req.request_type == "multiple_choice":
+                log_likelihoods = [resp[0] for resp in req.resps]  # Assuming log-likelihood is the first element
+                best_choice_index = log_likelihoods.index(max(log_likelihoods))
+                best_choice = req.choices[best_choice_index]
+                # Capture the details
                 captured_examples.append({
                     'question': req.question,
                     'choices': req.choices,
                     'correct_answer': req.correct_answer,
-                    'model_response': x
+                    'model_response': best_choice
                 })
+                # captured_examples.append({
+                #     'question': req.question,
+                #     'choices': req.choices,
+                #     'correct_answer': req.correct_answer,
+                #     'model_response': x
+                # })
 
         if lm.world_size > 1:
             lm.accelerator.wait_for_everyone()

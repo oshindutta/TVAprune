@@ -22,7 +22,7 @@ class Instance:
     # Additional fields for capturing question, choices, and correct answer
     question: Optional[str] = None
     choices: Optional[List[str]] = None
-    correct_answer: Optional[str] = None
+    correct_answer: Optional[int] = None  # Updated to int to match choice index
 
     # initialized after init
     task_name: Optional[str] = None
