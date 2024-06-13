@@ -371,6 +371,7 @@ class HFLM(TemplateLM):
         else:
             return self._model
 
+    @property
     def _set_model(self, model):
         # return the associated transformers.AutoConfig for the given pretrained model.
         print("We have loaded the new model !")
