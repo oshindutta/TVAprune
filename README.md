@@ -26,6 +26,7 @@
 
 ## Installation
 ```
+conda install pytorch==2.2.1 torchvision==0.17.1 torchaudio==2.2.1 pytorch-cuda=11.8 -c pytorch -c nvidia
 pip install -r requirement.txt
 ```
 
