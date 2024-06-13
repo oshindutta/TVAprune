@@ -208,6 +208,8 @@ def simple_evaluate(
     
     if pretrained_model is not None:
         lm._set_model(pretrained_model)
+        lm.rank=0
+        lm.world_size=1
 
     if use_cache is not None:
         eval_logger.info(f"Using cache at {use_cache + '_rank' + str(lm.rank) + '.db'}")
