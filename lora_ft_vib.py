@@ -220,6 +220,7 @@ class AdditionalArguments():
 	epoch_f: Optional[float] = field(default=1.0,	metadata={"help": "total epochs to finetune for"},	)
 	do_zero_eval: bool = field(default=False, metadata={"help": "Eleuther eval or not"})
 	finetune: bool = field(default=False, metadata={"help": "finetune the pruned model"})
+	write_out: bool = field(default=False, metadata={"help": "write output of the zero shot tasks to file"})
 
 class CustomTrainer(Trainer):
 	def set_distill_info(self, teacher_model, kl_weight=1.0, hidden_mse_weight=1.0, distill_temp=2.0):
@@ -640,6 +641,7 @@ def main():
 					pretrained_model=model,
 					#decontamination_ngrams_path=None,
 					check_integrity=False,
+					write_out=additional_args.write_out, #to write outputs -using lm-harness-new
 					#description_dict={},
 				)
 			print("\n Zero shot results W/o finetuning", results)
