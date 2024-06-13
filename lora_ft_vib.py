@@ -219,6 +219,7 @@ class AdditionalArguments():
 	inter_mul:Optional[float] = field(default=1.0,	metadata={"help": "vib multiplier for intermediate layers"},	)
 	epoch_f: Optional[float] = field(default=1.0,	metadata={"help": "total epochs to finetune for"},	)
 	do_zero_eval: bool = field(default=False, metadata={"help": "Eleuther eval or not"})
+	finetune: bool = field(default=False, metadata={"help": "finetune the pruned model"})
 
 class CustomTrainer(Trainer):
 	def set_distill_info(self, teacher_model, kl_weight=1.0, hidden_mse_weight=1.0, distill_temp=2.0):
@@ -614,18 +615,17 @@ def main():
 		prune_model(model, tokenizer, additional_args.mask_loc)
 		gc.collect()
 		torch.cuda.empty_cache()
-		model.eval()
+		model.eval()		
 		
-		if additional_args.do_zero_eval is not True: 
-			st_t1= time.time()
-			before_train_ppl, final_runtime = evaluate_ppl('wikitext2', model, tokenizer, model.seqlen) 
-			fin_tot_time= (time.time()-st_t1)
-			speedup = og_runtime / final_runtime
-			speed_test=og_tot_time/fin_tot_time
-			out_str = "[SpeedUp for a batch={:.3f}] SpeedUp on test set={:.3f}| W/o finetuning perplexity on wikitext = {:.3f} infer time= {:.3f}".format(speedup,speed_test, before_train_ppl,fin_tot_time)
-			print(out_str)
+		st_t1= time.time()
+		before_train_ppl, final_runtime = evaluate_ppl('wikitext2', model, tokenizer, model.seqlen) 
+		fin_tot_time= (time.time()-st_t1)
+		speedup = og_runtime / final_runtime
+		speed_test=og_tot_time/fin_tot_time
+		out_str = "[SpeedUp for a batch={:.3f}] SpeedUp on test set={:.3f}| W/o finetuning perplexity on wikitext = {:.3f} infer time= {:.3f}".format(speedup,speed_test, before_train_ppl,fin_tot_time)
+		print(out_str)
 						
-		else: 
+		if additional_args.do_zero_eval is True:
 			#To evaluate on peft lora-based model uncomment below
 			# lm_head_state_dict = torch.load(f'{additional_args.save_loc}/lm_head_state_dict.pth')
 			# model.lm_head.load_state_dict(lm_head_state_dict)
@@ -643,7 +643,8 @@ def main():
 					description_dict={},
 				)
 			print("\n Zero shot results W/o finetuning", results)
-			#exit()
+			if additional_args.finetune is not True:
+				exit()
 
 	if "c4" in data_args.dataset_name:
 		print("\n getting c4 dataset")

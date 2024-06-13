@@ -101,7 +101,8 @@ python lora_ft_vib.py --model_name_or_path "../mistral_7b" \
 
 # #for evaluating on eleuther
 python lora_ft_vib.py --model_name_or_path "../mistral_7b" \
-	--save_loc mistral_saves_tva/c4/model_att256_int1_bt128/new \
+	--do_eval \
+	--save_loc fine_model_saves \
 	--overwrite_output_dir \
 	--mask_loc 'mistral_saves_tva/c4/best/mask_info_18.891157150268555.pkl' \
 	--output_dir lora_ft \
