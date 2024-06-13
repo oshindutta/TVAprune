@@ -408,7 +408,7 @@ def evaluate(
         eval_logger.debug(
             f"Task: {task_output.task_name}; number of requests on this rank: {len(task.instances)}"
         )
-        if write_out:
+        if write_out is True:
             print_writeout(task)
         # aggregate Instances by LM method requested to get output.
         for instance in task.instances:
@@ -451,7 +451,7 @@ def evaluate(
         for x, req in zip(resps, cloned_reqs):
             req.resps.append(x)
             # Capture the details
-            if write_out:
+            if write_out is True:
                 # Determine the response with the highest log-likelihood
                 #if req.request_type == "multiple_choice":
                 log_likelihoods = [resp[0] for resp in req.resps]  # Assuming log-likelihood is the first element
@@ -475,7 +475,7 @@ def evaluate(
             lm.accelerator.wait_for_everyone()
 
     # Save captured examples to a file for analysis
-    if write_out:
+    if write_out is True:
         with open('captured_examples.json', 'w') as f:
             json.dump(captured_examples, f, indent=4)
 

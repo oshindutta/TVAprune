@@ -106,6 +106,7 @@ python lora_ft_vib.py --model_name_or_path "../mistral_7b" \
 	--overwrite_output_dir \
 	--mask_loc 'mistral_saves_tva/c4/best/mask_info_18.891157150268555.pkl' \
 	--output_dir lora_ft \
-	--do_zero_eval True 
+	--do_zero_eval True \
+	--write_out True
 
 
