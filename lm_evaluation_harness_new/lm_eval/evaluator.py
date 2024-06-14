@@ -207,7 +207,7 @@ def simple_evaluate(
     
     
     if pretrained_model is not None:
-        lm._set_model(pretrained_model)
+        lm.set_model(pretrained_model)
         lm.rank=0
         lm.world_size=1
 

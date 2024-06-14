@@ -371,11 +371,12 @@ class HFLM(TemplateLM):
         else:
             return self._model
 
-    @model.setter
-    def _set_model(self, model):
+    
+    def set_model(self, value):
         # return the associated transformers.AutoConfig for the given pretrained model.
+        self._model = value
         print("We have loaded the new model !")
-        self.model = model
+        self.model.eval()
         
     @property
     def eot_token_id(self):
