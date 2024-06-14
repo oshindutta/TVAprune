@@ -371,12 +371,12 @@ class HFLM(TemplateLM):
         else:
             return self._model
 
-    
-    def set_model(self, value):
+    @model.setter
+    def model(self, value):
         # return the associated transformers.AutoConfig for the given pretrained model.
         self._model = value
         print("We have loaded the new model !")
-        self.model.eval()
+        self._model.eval()
         
     @property
     def eot_token_id(self):
@@ -422,9 +422,15 @@ class HFLM(TemplateLM):
     def rank(self):
         return self._rank
 
+    @rank.setter(self, value):
+        self._rank = value
+
     @property
     def world_size(self):
         return self._world_size
+    
+    @world_size.setter(self, value):
+        self._world_size = value
 
     @property
     def tokenizer_name(self) -> str:
