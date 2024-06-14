@@ -560,7 +560,7 @@ def main():
 			from modelling_mistral_vib import MistralForCausalLM as VIBLlamaForCausalLM
 	elif 'llama3' in model_args.model_name_or_path:
 		if additional_args.prune_method is None:
-			from new_llama import LlamaForCausalLM as VIBLlamaForCausalLM
+			from transformers import AutoModelForCausalLM as VIBLlamaForCausalLM
 		else:
 			from modelling_llama3_vib import VIBLlamaForCausalLM
 	else:#for llama1 and 2
