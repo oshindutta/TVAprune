@@ -641,7 +641,7 @@ def main():
 					pretrained_model=model,
 					#decontamination_ngrams_path=None,
 					check_integrity=False,
-					write_out=additional_args.write_out, #to write outputs -using lm-harness-new
+					log_samples=additional_args.write_out,
 					#description_dict={},
 				)
 			print("\n Zero shot results W/o finetuning", results)
