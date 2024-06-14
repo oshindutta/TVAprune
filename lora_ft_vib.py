@@ -15,6 +15,7 @@ import pdb
 import pickle as pkl
 import gc
 import time
+import json
 
 # Uncomment this out if running the Eleuther evaluation harness
 from lm_evaluation_harness_new.lm_eval import evaluator
@@ -638,13 +639,16 @@ def main():
 					tasks=["hellaswag","winogrande","openbookqa","arc_easy","arc_challenge", "piqa", "boolq","rte"],
 					num_fewshot=0,
 					#no_cache=True,
-					pretrained_model=model,
+					# pretrained_model=model,
 					#decontamination_ngrams_path=None,
 					check_integrity=False,
 					log_samples=additional_args.write_out,
 					#description_dict={},
 				)
 			print("\n Zero shot results W/o finetuning", results)
+			# if additional_args.write_out:
+			with open(os.path.join(additional_args.save_loc, "results.json"), 'w') as fw:
+				json.dump(results, fw, indent=4)
 			if additional_args.finetune is not True:
 				exit()
 
