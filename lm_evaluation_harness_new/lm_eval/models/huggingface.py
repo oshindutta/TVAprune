@@ -422,14 +422,16 @@ class HFLM(TemplateLM):
     def rank(self):
         return self._rank
 
-    @rank.setter(self, value):
+    @rank.setter
+    def rank(self, value):
         self._rank = value
 
     @property
     def world_size(self):
         return self._world_size
     
-    @world_size.setter(self, value):
+    @world_size.setter
+    def world_size(self, value):
         self._world_size = value
 
     @property
