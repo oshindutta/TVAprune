@@ -66,7 +66,7 @@ ATT_MUL=256 #can be changed to 512 to pruned more attention weights for target s
 bash script/tva_prune.sh $UNPRUNED_MODEL $MASK_SAVE $VIB_LR $TARGET_SPARSITY $LAGRANGIAN_WARMUP $ATT_MUL $DATASET
 ```
 
-### Finetuning with [LoRA](https://github.com/microsoft/LoRA)
+## Finetuning with [LoRA](https://github.com/microsoft/LoRA)
 Speed-up over un-pruned model is seen at the start of finetuning.
 ```
 UNPRUNED_MODEL=[PATH TO MODEL]
