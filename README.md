@@ -18,8 +18,9 @@
 
 ## Table of Contents
 - [Installation](#installation)
+- [Evaluation of our models](#Evaluation of our pruned models)
 - [Example of Pruning](#example-of-pruning)
-- [Step-by-step Instructions](#step-by-step-instructions)
+- [Finetuning with LoRA](#fine)
 
 ## Installation
 ```
@@ -32,12 +33,12 @@ pip install -r requirement.txt
 - accelerate 0.30.1
 - datasets 2.19.1
 
-### To evaluate on [Eleuther lm-evaluation-harness](https://github.com/EleutherAI/lm-evaluation-harness)
+#### To evaluate on [Eleuther lm-evaluation-harness](https://github.com/EleutherAI/lm-evaluation-harness)
 ```
 cd lm-evaluation-harness
 pip install -e .
 ```
-
+## Evaluation of our pruned models
 ## To evaluate our Mistral and LLaMA-3 pruned models:
 Our pruning masks to prune Mistral-7B and LLaMA-3-7B are in mistral_saves_tva and llama3_saves_tva respectively. 
 The speedup may differ slightly depending on the machine.
