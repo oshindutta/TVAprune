@@ -18,7 +18,7 @@
 
 ## Table of Contents
 - [Installation](#installation)
-- [Evaluation of our models](#Evaluation of our pruned models)
+- [Evaluation of our pruned models](#Evaluation-of-our-pruned-models)
 - [Example of Pruning](#example-of-pruning)
 - [Finetuning with LoRA](#fine)
 
@@ -39,31 +39,38 @@ cd lm-evaluation-harness
 pip install -e .
 ```
 ## Evaluation of our pruned models
-## To evaluate our Mistral and LLaMA-3 pruned models:
 Our pruning masks to prune Mistral-7B and LLaMA-3-7B are in mistral_saves_tva and llama3_saves_tva respectively. 
 The speedup may differ slightly depending on the machine.
-```
-python lora_ft_vib.py --model_name_or_path [PATH TO UNPRUNED MODEL] \
+```python lora_ft_vib.py --model_name_or_path [PATH TO UNPRUNED MODEL] \
 	--do_eval \
 	--overwrite_output_dir \
-	--mask_loc [PATH TO PRUNING MASK] \
+	--save_loc [PATH TO SAVE RESULTS] \
+	--mask_loc [PATH TO MASK LOCATION] \
+	--output_dir [PATH TO SAVE MODELS] \
 	--do_zero_eval True
 ```
-- ``mask_loc``can be assigned 'mistral_saves_tva/mask_info_18.891157150268555.pkl'
-## Example of Pruning
+``--write_out True`` can write out into a file the loglikelihood results and examples of zero-shot tasks
+``--mask_loc``can be assigned 'mistral_saves_tva/mask_info_18.891157150268555.pkl' to denote path to our pruning mask for Mistral-7B
 
+## Example of Pruning
 Pruning with TVAprune to replicate our model in Table 1
 ```
-bash script/llama_prune.sh
+UNPRUNED_MODEL=[PATH TO MODEL]
+MASK_SAVE=[PATH TO SAVE MASKS]
+VIB_LR=0.05 #can be changed to 0.1 for target sparsity>0.5
+TARGET_SPARSITY=0.2 
+LAGRANGIAN_WARMUP=0.1 #can be changed to 0.2 for target sparsity>0.6
+ATT_MUL=256 #can be changed to 512 to pruned more attention weights for target sparsity>0.6
+bash script/tva_prune.sh $UNPRUNED_MODEL $MASK_SAVE $VIB_LR $TARGET_SPARSITY $LAGRANGIAN_WARMUP $ATT_MUL
 ```
 
 ### Finetuning with [LoRA](https://github.com/microsoft/LoRA)
+Speed-up over un-pruned model is seen at the start of finetuning.
+```
+UNPRUNED_MODEL=[PATH TO MODEL]
+PATH_MASK=[PATH TO SAVED MASK]
+SAVE_MODEL=[PATH TO SAVE MODEL]
+Bash script/tva_fine.sh $UNPRUNED_MODEL $SAVE_MODEL $PATH_MASK
+```
 
-Speed-up over un-pruned model is seen at the start of finetuning. Our obatined VIB mask stored in /best/ is used below for finetuning. 
-
-Arguments:
-- ``lora_r`` and ``lora_alpha`` control the LoRA configuration
-- ``distill_ce_loss_alpha``: multplier of logit-based distillation loss
-- ``mask_loc``: uploading a saved mask
-- ``dataset_name``: we finetune on wikitext2 , but previous techniques have finetuned on c4 have higher train samples. It may be changed to c4 to get better perplexity.
 
