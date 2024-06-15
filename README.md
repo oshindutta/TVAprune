@@ -61,8 +61,9 @@ MASK_SAVE=[PATH TO SAVE MASKS]
 VIB_LR=0.05 #can be changed to 0.1 for target sparsity>0.5
 TARGET_SPARSITY=0.2 
 LAGRANGIAN_WARMUP=0.1 #can be changed to 0.2 for target sparsity>0.6
+DATASET=c4 #can be changed to wikitext2 for task-specific pruning
 ATT_MUL=256 #can be changed to 512 to pruned more attention weights for target sparsity>0.6
-bash script/tva_prune.sh $UNPRUNED_MODEL $MASK_SAVE $VIB_LR $TARGET_SPARSITY $LAGRANGIAN_WARMUP $ATT_MUL
+bash script/tva_prune.sh $UNPRUNED_MODEL $MASK_SAVE $VIB_LR $TARGET_SPARSITY $LAGRANGIAN_WARMUP $ATT_MUL $DATASET
 ```
 
 ### Finetuning with [LoRA](https://github.com/microsoft/LoRA)
