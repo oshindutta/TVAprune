@@ -2,7 +2,7 @@
 ## Introduction 
 - [x] Includes pruning of Grouped-Query Attention (GQA) based models
 - [x] Post prune instant weight update to recover performance
-- [x] Post-prune dimension adjustment to make weight matrix dimensions conform to dimensions used by GPU for better paralellism and hence faster inference
+- [x] Post-prune dimension adjustment to make weight matrix dimensions easily parallelizable by tensor cores in GPUs for faster inference
  
 #### Why TVAprune for pruning LLMs:
 - [x] **Structured Pruning**: Suitable to deploy compressed dense models on devices
