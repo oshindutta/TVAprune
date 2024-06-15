@@ -46,7 +46,7 @@ python lora_ft_vib.py --model_name_or_path [PATH TO UNPRUNED MODEL] \
 	--do_eval \
 	--overwrite_output_dir \
 	--save_loc [PATH TO SAVE RESULTS] \
-	--mask_loc [PATH TO MASK LOCATION] \
+	--mask_loc [PATH TO SAVED MASK] \
 	--output_dir [PATH TO SAVE MODELS] \
 	--do_zero_eval True
 ```
