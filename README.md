@@ -4,12 +4,6 @@
 - [x] Post prune instant weight update to recover performance
 - [x] Post-prune dimension adjustment to make weight matrix dimensions conform to dimensions used by GPU for better paralellism and hence faster inference
  
-#### Package versions tested on:
-- torch 2.2.1
-- transformers 4.40.2
-- accelerate 0.30.1
-- datasets 2.19.1
-
 #### Why TVAprune for pruning LLMs:
 - [x] **Structured Pruning**: Suitable to deploy compressed dense models on devices
 - [x] **Efficient Compression**: Better performance without finetuning model parameters than other structured pruning methods (LLM-pruner, Bonsai, FLAP)
@@ -32,6 +26,12 @@
 conda install pytorch==2.2.1 torchvision==0.17.1 torchaudio==2.2.1 pytorch-cuda=11.8 -c pytorch -c nvidia
 pip install -r requirement.txt
 ```
+#### Package versions tested on:
+- torch 2.2.1
+- transformers 4.40.2
+- accelerate 0.30.1
+- datasets 2.19.1
+
 ### To evaluate on [Eleuther lm-evaluation-harness](https://github.com/EleutherAI/lm-evaluation-harness)
 ```
 cd lm-evaluation-harness
