@@ -41,7 +41,8 @@ pip install -e .
 ## Evaluation of our pruned models
 Our pruning masks to prune Mistral-7B and LLaMA-3-7B are in mistral_saves_tva and llama3_saves_tva respectively. 
 The speedup may differ slightly depending on the machine.
-```python lora_ft_vib.py --model_name_or_path [PATH TO UNPRUNED MODEL] \
+```
+python lora_ft_vib.py --model_name_or_path [PATH TO UNPRUNED MODEL] \
 	--do_eval \
 	--overwrite_output_dir \
 	--save_loc [PATH TO SAVE RESULTS] \
