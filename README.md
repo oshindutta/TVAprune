@@ -1,5 +1,5 @@
+# **TVAprune: Token Dependency-aware Variational Adapted pruning**
 ## Introduction 
-**TVAprune: Token Dependency-aware Variational Adapted pruning**
 - [x] Includes pruning of Grouped-Query Attention (GQA) based models
 - [x] Post prune instant weight update to recover performance
 - [x] Post-prune dimension adjustment to make weight matrix dimensions conform to dimensions used by GPU for better paralellism and hence faster inference
