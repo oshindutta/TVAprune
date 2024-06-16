@@ -666,9 +666,9 @@ def main():
 			except:
 				raw_datasets['validation'] = load_from_disk(os.path.join('../wikitext2rawv1','test'))
 		try:
-			raw_datasets['train']=load_dataset('../wikitext2rawv1',  data_dir='train')
+			raw_datasets['train'] = load_dataset('wikitext', 'wikitext-2-raw-v1', split='train')
 		except:
-			raw_datasets['train'] =load_from_disk(os.path.join('../wikitext2rawv1','train'))
+			raw_datasets['train'] = load_from_disk(os.path.join('../wikitext2rawv1','train'))
 		
 	
 	print("\n loaded dataset")
