@@ -111,6 +111,7 @@ class VIBCustomTrainer(Trainer):
 				else:
 					param.requires_grad= False
 			
+			self.main_model_params = []
 			if self.main_model_params!=[]:
 				self.optimizer = AdamW(
 					self.main_model_params,

@@ -8,8 +8,8 @@ from typing import Any, Dict, List, Optional, Tuple, Union
 import torch
 from packaging import version
 
-from .configuration_utils import PretrainedConfig
-from .utils import is_hqq_available, is_quanto_available, logging
+from transformers import PretrainedConfig
+from transformers.utils import is_hqq_available, is_quanto_available, logging
 
 
 if is_quanto_available():
