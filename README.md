@@ -75,4 +75,19 @@ SAVE_MODEL=[PATH TO SAVE MODEL]
 Bash script/tva_fine.sh $UNPRUNED_MODEL $SAVE_MODEL $PATH_MASK
 ```
 
+#### Other publicly available code referred to here
+* VIB pruning inspired from https://github.com/zhuchen03/VIBNet/blob/master/ib_layers.py
+
+## Citation
+
+Please cite our paper if you use TVAprune in your work:
+
+```bibtex
+@article{dutta2024vtrans,
+  title={VTrans: Accelerating Transformer Compression with Variational Information Bottleneck based Pruning},
+  author={Dutta, Oshin and Gupta, Ritvik and Agarwal, Sumeet},
+  journal={arXiv preprint arXiv:2406.05276},
+  year={2024}
+}
+```
 
