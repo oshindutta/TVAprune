@@ -2,6 +2,8 @@
 
 [Efficient Systems for Foundation Models @ ICML 2024](https://openreview.net/forum?id=cqhAzteLzc)
 
+![TVA-Prune](https://raw.githubusercontent.com/oshindutta/TVAprune/main/figures/method.svg?token=GHSAT0AAAAAACNGZAHBE4QPIWYMATY3U7JWZU6SORQ)
+
 ## Introduction 
 - Includes pruning of Grouped-Query Attention (GQA) based models
 - Post-prune instant weight update to recover performance
