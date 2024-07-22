@@ -82,6 +82,7 @@ Bash script/tva_fine.sh $UNPRUNED_MODEL $SAVE_MODEL $PATH_MASK
 
 #### Other publicly available code referred to here
 * VIB pruning inspired from https://github.com/zhuchen03/VIBNet/blob/master/ib_layers.py
+* Evaluations from [LLM-Pruner](https://github.com/horseee/LLM-Pruner)
 
 ## Citation
 
