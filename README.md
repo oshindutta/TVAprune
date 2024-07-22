@@ -2,7 +2,7 @@
 
 [Efficient Systems for Foundation Models @ ICML 2024](https://openreview.net/forum?id=cqhAzteLzc)
 
-![TVA-Prune](https://raw.githubusercontent.com/oshindutta/TVAprune/main/figures/method.svg?token=GHSAT0AAAAAACNGZAHBE4QPIWYMATY3U7JWZU6SORQ)
+![TVA-Prune](https://raw.githubusercontent.com/oshindutta/TVAprune/main/figures/method.svg)
 
 ## Introduction 
 - Includes pruning of Grouped-Query Attention (GQA) based models
@@ -23,9 +23,9 @@
 
 ## Table of Contents
 - [Installation](#installation)
-- [Evaluation of our pruned models](#Evaluation-of-our-pruned-models)
+- [Evaluation of our pruned models](#evaluation-of-our-pruned-models)
 - [Example of Pruning](#example-of-pruning)
-- [Finetuning with LoRA](#fine)
+- [Finetuning with LoRA](#finetuning-with-lora)
 
 ## Installation
 ```
@@ -44,7 +44,7 @@ cd lm-evaluation-harness
 pip install -e .
 ```
 ## Evaluation of our pruned models
-Our pruning masks to prune Mistral-7B and LLaMA-3-7B are in mistral_saves_tva and llama3_saves_tva respectively. 
+Our pruning masks to prune Mistral-7B and LLaMA-3-7B are in `mistral_saves_tva` and `llama3_saves_tva` respectively. 
 The speedup may differ slightly depending on the machine.
 ```
 python lora_ft_vib.py --model_name_or_path [PATH TO UNPRUNED MODEL] \
@@ -56,10 +56,10 @@ python lora_ft_vib.py --model_name_or_path [PATH TO UNPRUNED MODEL] \
 	--do_zero_eval True
 ```
 ``--write_out True`` can write out into a file the loglikelihood results and examples of zero-shot tasks
-``--mask_loc``can be assigned 'mistral_saves_tva/mask_info_18.891157150268555.pkl' to denote path to our pruning mask for Mistral-7B
+``--mask_loc`` can be assigned `'mistral_saves_tva/mask_info_18.891157150268555.pkl'` to denote path to our pruning mask for Mistral-7B
 
 ## Example of Pruning
-Pruning with TVAprune to replicate our model in Table 1
+Pruning with TVA-Prune to replicate our model in Table 1
 ```
 UNPRUNED_MODEL=[PATH TO MODEL]
 MASK_SAVE=[PATH TO SAVE MASKS]
@@ -88,10 +88,11 @@ Bash script/tva_fine.sh $UNPRUNED_MODEL $SAVE_MODEL $PATH_MASK
 Please cite our paper if you use TVAprune in your work:
 
 ```bibtex
-@article{dutta2024vtrans,
-  title={VTrans: Accelerating Transformer Compression with Variational Information Bottleneck based Pruning},
-  author={Dutta, Oshin and Gupta, Ritvik and Agarwal, Sumeet},
-  journal={arXiv preprint arXiv:2406.05276},
-  year={2024}
+@inproceedings{dutta2024tvaprune,
+	title={Efficient LLM Pruning with Global Token-Dependency Awareness and Hardware-Adapted Inference},
+	author={Dutta, Oshin and Gupta, Ritvik and Agarwal, Sumeet},
+	booktitle={Workshop on Efficient Systems for Foundation Models II @ ICML2024},
+	year={2024},
+	url={https://openreview.net/forum?id=cqhAzteLzc}
 }
 ```
