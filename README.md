@@ -1,19 +1,22 @@
-# **TVAprune: Token Dependency-aware Variational Adapted pruning**
+# **TVA-Prune: Token Dependency-aware Variational Adapted pruning**
+
+[Efficient Systems for Foundation Models @ ICML 2024](https://openreview.net/forum?id=cqhAzteLzc)
+
 ## Introduction 
-- [x] Includes pruning of Grouped-Query Attention (GQA) based models
-- [x] Post prune instant weight update to recover performance
-- [x] Post-prune dimension adjustment to make weight matrix dimensions easily parallelizable by tensor cores in GPUs for faster inference
+- Includes pruning of Grouped-Query Attention (GQA) based models
+- Post-prune instant weight update to recover performance
+- Post-prune dimension adjustment to make weight matrix dimensions easily parallelizable by tensor cores in GPUs for faster inference
  
-#### Why TVAprune for pruning LLMs:
-- [x] **Structured Pruning**: Suitable to deploy compressed dense models on devices
-- [x] **Efficient Compression**: Better performance without finetuning model parameters than other structured pruning methods (LLM-pruner, Bonsai, FLAP)
-- [x] **Faster Inference**: Pruned models infer faster than other methods
-- [x] **Low Resource Compression**: Requires only 1 GPU (tested on NVIDIA A100(40GB) and NVIDIA A6000(48GB))
+#### Why TVA-Prune for pruning LLMs:
+- **Structured Pruning**: Suitable to deploy compressed dense models on devices
+- **Efficient Compression**: Better performance without finetuning model parameters than other structured pruning methods (LLM-pruner, Bonsai, FLAP)
+- **Faster Inference**: Pruned models infer faster than other methods
+- **Low Resource Compression**: Requires only 1 GPU (tested on NVIDIA A100(40GB) and NVIDIA A6000(48GB))
 
 #### Supported LLMs:
-- [x] [Llama-2 Hugging Face](https://huggingface.co/meta-llama)
-- [x] [Llama-3 Hugging Face](https://huggingface.co/meta-llama/Meta-Llama-3-8B)
-- [x] [Mistral Hugging Face](https://huggingface.co/mistralai/Mistral-7B-v0.1)
+- [Llama-2 Hugging Face](https://huggingface.co/meta-llama)
+- [Llama-3 Hugging Face](https://huggingface.co/meta-llama/Meta-Llama-3-8B)
+- [Mistral Hugging Face](https://huggingface.co/mistralai/Mistral-7B-v0.1)
 
 
 ## Table of Contents
@@ -90,4 +93,3 @@ Please cite our paper if you use TVAprune in your work:
   year={2024}
 }
 ```
-
