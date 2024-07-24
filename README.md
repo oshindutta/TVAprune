@@ -1,6 +1,6 @@
-# **TVA-Prune: Token Dependency-aware Variational Adapted pruning**
+# **TVA-Prune: Token Dependency-aware Variational Adapted Pruning**
 
-[Efficient Systems for Foundation Models @ ICML 2024](https://openreview.net/forum?id=cqhAzteLzc)
+:page_facing_up: [Paper](https://openreview.net/forum?id=cqhAzteLzc) | **Efficient Systems for Foundation Models @ ICML 2024**
 
 ![TVA-Prune](https://raw.githubusercontent.com/oshindutta/TVAprune/main/figures/method.svg)
 
