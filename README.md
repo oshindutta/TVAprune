@@ -14,6 +14,7 @@
 - **Efficient Compression**: Better performance without finetuning model parameters than other structured pruning methods (LLM-pruner, Bonsai, FLAP)
 - **Faster Inference**: Pruned models infer faster than other methods
 - **Low Resource Compression**: Requires only 1 GPU (tested on NVIDIA A100(40GB) and NVIDIA A6000(48GB))
+- Pruned masks included here to reproduce results
 
 #### Supported LLMs:
 - [Llama-2 Hugging Face](https://huggingface.co/meta-llama)
