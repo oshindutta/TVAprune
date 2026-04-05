@@ -19,7 +19,7 @@ from transformers.trainer_utils import TrainOutput
 from transformers.utils import logging
 #from torch.profiler import profile, record_function, ProfilerActivity
 import pickle as pkl
-from evaluate_ppl import evaluate_ppl
+from .evaluate_ppl import evaluate_ppl
 
 logger = logging.get_logger(__name__)
 class Eval_Counter():
