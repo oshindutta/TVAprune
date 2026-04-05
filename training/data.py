@@ -1,5 +1,5 @@
 """
-	Code here heavily burrows from https://github.com/locuslab/wanda/tree/main
+	Code here heavily borrows from https://github.com/locuslab/wanda/tree/main
 """
 # Code adapted from https://github.com/IST-DASLab/sparsegpt/blob/master/datautils.py
 import numpy as np

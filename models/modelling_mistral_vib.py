@@ -46,7 +46,7 @@ from transformers.utils import (
 	replace_return_docstrings,
 )
 from transformers.models.mistral.configuration_mistral import MistralConfig
-from vib_layer_lay import InformationBottleneck
+from models.vib_layer_lay import InformationBottleneck
 
 # if is_flash_attn_2_available():
 # 	from flash_attn import flash_attn_func, flash_attn_varlen_func

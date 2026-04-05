@@ -23,7 +23,7 @@ from torch import nn
 import datasets
 from datasets import load_from_disk
 import torch
-from data import get_loaders 
+from training.data import get_loaders 
 from datasets import load_dataset
 import numpy as np
 from tqdm import tqdm
@@ -57,8 +57,8 @@ from peft import (
 	PeftConfig,
 	PeftModel
 )
-from evaluate_ppl import evaluate_ppl 
-from trainer_vib import VIBCustomTrainer
+from training.evaluate_ppl import evaluate_ppl 
+from training.trainer_vib import VIBCustomTrainer
 # Will error if the minimal version of Transformers is not installed. Remove at your own risks.
 # check_min_version("4.29.0.dev0")
 from importlib.metadata import version
@@ -558,17 +558,17 @@ def main():
 		if additional_args.prune_method is None:
 			from transformers import AutoModelForCausalLM as VIBLlamaForCausalLM
 		else:
-			from modelling_mistral_vib import MistralForCausalLM as VIBLlamaForCausalLM
+			from models.modelling_mistral_vib import MistralForCausalLM as VIBLlamaForCausalLM
 	elif 'llama3' in model_args.model_name_or_path:
 		if additional_args.prune_method is None:
 			from transformers import AutoModelForCausalLM as VIBLlamaForCausalLM
 		else:
-			from modelling_llama3_vib import VIBLlamaForCausalLM
+			from models.modelling_llama3_vib import VIBLlamaForCausalLM
 	else:#for llama1 and 2
 		if additional_args.prune_method is None:
 			from transformers import AutoModelForCausalLM as VIBLlamaForCausalLM
 		else:
-			from modelling_llama_vib import VIBLlamaForCausalLM
+			from models.modelling_llama_vib import VIBLlamaForCausalLM
 		
 	if additional_args.prune_method is None:
 		if 'mistral' in model_args.model_name_or_path:
