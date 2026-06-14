@@ -106,8 +106,7 @@ pip install -r requirements.txt
 
 #### To evaluate on [Eleuther lm-evaluation-harness](https://github.com/EleutherAI/lm-evaluation-harness)
 ```
-cd lm_evaluation_harness_new
-pip install -e .
+pip install lm-eval==0.4.2
 ```
 ## Evaluation of our pruned models
 Our pruning masks to prune Mistral-7B and LLaMA-3-7B are in `mistral_saves_tva` and `llama3_saves_tva` respectively. 

@@ -1,3 +1,61 @@
+# Python
 __pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+dist/
+build/
+*.egg
+.eggs/
 
+# Environments
+.env
+.venv
+venv/
+env/
+*.conda
+*.lock
+.claude/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# Model weights & checkpoints
+*.bin
+*.pt
+*.pth
+*.safetensors
+*.gguf
+checkpoint-*/
+runs/
+
+# Pruning masks & saved outputs
+*.pkl
+*.pickle
 results/
+
+# HuggingFace cache
+.cache/
+hub/
+
+# macOS metadata
+._*
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# VS Code
+.vscode/
+
+# Logs
+*.log
+wandb/
+lightning_logs/
+
+# Data
+*.arrow
+*.parquet
+data/
+datasets/
